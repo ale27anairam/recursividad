@@ -115,6 +115,60 @@
       padding: 20px;
       margin-top: 40px;
     }
+/* -------------------- RESPONSIVE -------------------- */
+
+/* Para pantallas medianas (tablets y laptops pequeñas) */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 5em;
+  }
+  .hero p {
+    font-size: 1.1em;
+  }
+}
+
+/* Para tablets y móviles en horizontal */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  .hero h1 {
+    font-size: 3em;
+  }
+  .hero p {
+    font-size: 1em;
+  }
+  section {
+    margin: 40px 10px;
+    padding: 20px;
+  }
+}
+
+/* Para móviles pequeños */
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+    padding: 20px;
+  }
+  .hero h1 {
+    font-size: 2.2em;
+  }
+  .hero p {
+    font-size: 0.9em;
+  }
+  nav .logo {
+    font-size: 1.2em;
+  }
+  footer {
+    font-size: 0.8em;
+  }
+}
+
+    
   </style>
 </head>
 <body>
@@ -387,4 +441,5 @@
   </footer>
 
 </body>
+
 </html>
