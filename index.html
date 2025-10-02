@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Web - Recursividad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Monaco', Times, serif, sans-serif; /*Tipo de letra*/
+      background: url(Imagenes/Fondo1.jpg) no-repeat center center fixed; /* 👈 Imagen de fondo */
+      background-size: cover;
+      color: #0a0a0a;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%; /*Tamaño de las letras del navegador*/
+      background: rgb(9, 9, 9); /* transparente para ver la imagen detrás */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0px;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #f3f7fa;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.5s;
+    }
+    nav a:hover {
+      color: #040404;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 75vh; /*Tamaño del primer cuadro*/
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      flex-direction: column;
+      text-align: center;
+      color: rgb(223, 204, 204);
+      text-shadow: 2px 2px 6px black; /* Para que el texto resalte */
+      padding: 40px;
+    }
+    .hero h1 {
+  font-size: 10em; /*Tamaño de RECURSIVIDAD*/
+  animation: fadeInDown 2s;
+  color: #f7f8f8; /* Cambia este valor por el color que quieras */
+}
+
+
+    .hero p {
+      font-size: 1.5em;
+      margin-top: 25px;
+      animation: fadeInUp 2s;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECCIONES */
+    section { /* Fondo de la todos los cuadros de fondo*/
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 50px;    
+      background: rgba(44, 42, 42, 0.6); /*  Capa blanca semitransparente */
+      border-radius: 10px;
+    }
+    h2 {
+      color: #f3f4f6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* TARJETAS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(246, 243, 243, 0.848);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      animation: fadeIn 2s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e1f1f;
+      color: rgba(255, 255, 255, 0.896);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo"><a href="#inicio" style="color:white; font-size:30px;">Recursividad</a></div>
+    <div>
+      <a href="#definicion">Definición</a>
+      <a href="#procedimientos">Procedimientos</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#complejidad">Complejidad</a>
+      <a href="#ejemplos">Ejemplos</a>
+      <a href="#conclusion">Conclusión</a>
+      <a href="#referencias">Referencias</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="inicio">
+    <h1>Recursividad</h1>
+    <p> Es el comportamiento de una función que se llama a sí misma. </p>
+    <p>  “Para entender la recursividad hay que entender la recursividad" </p>
+  </section>
+
+  <!-- Aquí siguen tus secciones (definición, procedimientos, etc.) -->
+  
+
+<!-- DEFINICIÓN -->
+<section id="definicion">
+  <h2>Definición de Recursividad</h2>
+  <div class="cards"> 
+    <!-- Cuadro rectangular -->
+    <div class="card grande">
+
+      <p>
+        La <b>recursividad</b> es una técnica donde un método se llama a sí 
+        mismo para resolver un problema dividiéndolo en subproblemas más
+        pequeños. Facilita soluciones claras y concisas, aunque requiere 
+        cuidado para evitar errores como llamadas infinitas o desbordamiento 
+        de memoria [1].
+      </p>
+    
+   <br> <!-- salto de línea -->
+
+
+
+  <!-- Dos cuadritos abajo -->
+    <div class="card">
+      <p>
+        <b> Directa: </b> el programa o subprograma se llama directamente a sí
+         mismo. Representa un programa y en alguna parte y en alguna parte de
+        el aparece una llamada a sí mismo [2].</p> 
+
+        Ocurre cuando una función se llama a sí misma directamente para 
+        resolver un problema.
+        <br>
+        <p> <b> Ejemplo práctico: </b>Calcular la suma de los primeros n números naturales.</p>
+        <img src="Imagenes/Directa1.1.png" width="450" style="display: block; margin: auto;">
+        
+      </p>
+    </div>
+
+    <br> <!-- salto de línea -->
+    <br> <!-- salto de línea -->
+    <br> <!-- salto de línea -->
+
+    <div class="card">
+      <p>
+        <b> Indirecta: </b>El subprograma llama a otro subprograma, y éste, en algún 
+        momento, llama nuevamente al primero [2]. </p>
+        Ocurre cuando una función llama a otra función distinta, que a su vez 
+        llama a la función original, creando un ciclo de llamadas entre las 
+        funciones.
+      </p>
+      <p> <b> Ejemplo práctico: </b>Calcular el valor absoluto de un número utilizando recursividad indirecta.</p>
+      <img src="Imagenes/Indirecta1.1.png" width="450"style="display: block; margin: auto;">
+    </div>
+  </div>
+</section>
+
+
+<!-- PROCEDIMIENTOS -->
+<section id="Procedimientos">
+  <h2>Procedimientos Recursivos y Aplicaciones</h2>
+  <div class="cards">
+    <div class="card">
+      
+
+      <p>Un procedimiento recursivo es aquel que se llama a sí mismo para resolver un problema, generalmente dividiéndolo en subproblemas más simples hasta alcanzar un caso base.</p>
+      <ul>
+        <li>Debe tener un caso base que detenga la recursión.</li>
+        <li>Puede ser directa o indirecta.</li>
+        <li>Puede ser lineal, múltiple o final.</li>
+        <li>Permite reemplazar bucles en ciertos problemas complejos de manera más clara.</li>
+      </ul>
+
+      <p><b>Aplicaciones comunes:</b></p>
+      <p> La recursividad se utiliza en muchos campos de la programación y algoritmos por su capacidad de simplificar problemas complejos. Algunos ejemplos comunes:  </p>
+      <ul>
+        <li><b>Listas enlazadas: </b> recorrer o buscar nodos</li>
+        <li> <b> Árboles y grafos: </b> recorrido en preorden, inorden, posorden.</li>
+        <li><b>Pilas y colas: </b> procesos recursivos de inserción o elimicación.  </li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- CARACTERÍSTICAS -->
+  <section id="caracteristicas">
+    <h2>Características de la Recursividad</h2>
+    <div class="cards">
+      <div class="card">
+        <ul>
+          <li> Toda función recursiva debe tener un caso base que detenga la recursión y evite llamadas infinitas.
+             Ejemplo: if (n == 0) return 1; en factorial. </li>
+          <li>Divide un problema en subproblemas más pequeños.</li>
+          <li>Utiliza la pila de llamadas para almacenar estados intermedios.</li>
+          <li>Permite soluciones elegantes y compactas.</li>
+          <li>Puede ser menos eficiente que soluciones iterativas debido al uso de memoria.</li>
+          <li> Permite expresar soluciones claras y concisas frente a problemas que serían complicados. </li>
+          <li> Cada llamda recusiva debe simplicar el calculo de alguna manera [3].</li>
+          <p></p>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLEJIDAD -->
+  <section id="complejidad">
+    <h2> Complejidad Computacional en los algoritmos recursivos </h2>
+    <div class="cards">
+      <div class="card">
+        <p> La complejidad computacional de los algoritmos recursivos es un 
+            aspecto crucial que debe ser considerado al diseñar y analizar 
+            algoritmos para garantizar su eficiencia y efectividad en la 
+            resolución de problemas. </p>
+       <p> El propósito principal de la complejidad computacional es el análisis del comportamiento
+         de los algoritmos, buscando medir o estimar los recursos, principalmente el tiempo de ejecución, 
+         que consumirán para resolver problemas [6].</p> 
+        <p> La complejidad se mide contando operaciones significativas como las aritméticas y de 
+          comparación, y se representa mediante una función matemática que caracteriza el rendimiento 
+          del algoritmo, permitiendo predecir su tiempo de ejecución para distintas entradas sin necesidad 
+          de ejecutarlo. </p>
+        <p>La complejidad de algoritmos recursivos depende del número de llamadas recursivas y del trabajo en cada llamada. Ejemplos:</p>
+        <ul>
+          <li><b>Factorial:</b> O(n)</li>
+          <li><b>Fibonacci (versión simple):</b> O(2ⁿ), muy ineficiente.</li>
+          <li><b>Fibonacci con memoización:</b> O(n)</li>
+          <li><b>Torres de Hanói:</b> O(2ⁿ), exponencial.</li>
+    
+
+          <p> </p>
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EJEMPLOS -->
+  <section id="ejemplos">
+    <h2>Ejemplos de Algoritmos Recursivos</h2>
+    <div class="cards">
+      <div class="card">
+
+        <h3>Factorial</h3>
+         <p> El factorial de un número entero positivo n, representado 
+          como n!, es el producto de todos los números enteros positivos 
+          desde 1 hasta n. </p> 
+       <p> La función 
+        recursiva calcula el factorial de un número entero no negativo [1]. </p> 
+       
+        <p><code>Formula: n! = n * (n-1)!</code>, con el caso base <code>0! = 1</code>.</p>
+        <img src="Imagenes/Factorial.png" width="230" style="display: block; margin: auto;">
+        <br> <!-- salto de línea -->
+        <img src="Imagenes/Facto Ejemplo.jpg" width="230" style="display: block; margin: auto;">
+        
+       
+      </div>
+      <div class="card">
+
+
+
+        <h3>Fibonacci</h3>
+        <p> La función recursiva calcula el n-ésimo término de la serie de Fibonacci.</p>
+        <p><code>F(n) = F(n-1) + F(n-2)</code>, con <code>F(0)=0</code> y <code>F(1)=1</code>.</p>
+        <p>Es la secuencia de enteros: </p>
+       <p> <code> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 </code> </p> 
+       <p>Cada elemnto de esta secuencia es la suma de los dos elemntos precedentes </p>
+       <p> <code>(ej. 0+1=1, 1+1=2, 1+2=3, 2+3=5,... )</code></p>
+       <p>Si definimos  fib (0)=0, fib (1)=1, y asi sucesivamente, podemos definir la secuencia de Fibonacci por medio de la siguiente definición recursiva [4]. </p>
+      <img src="Imagenes/Figonacci1.jpg" width="230" style="display: block; margin: auto;">
+      <p>Ejemplo en código:</p>
+       <img src ="Imagenes/Factorial.png" width="250"style="display: block; margin: auto;">
+      </div>
+
+
+      <div class="card">
+        <h3>Torres de Hanói</h3>
+        <p> El problema de la Torre de Hanoi consiste en 
+          mover n discos de tamaño diferente desde una barra
+          de origen a una barra de destino, utilizando una 
+          barra auxiliar, siguiendo las siguientes reglas: </p>
+          <li>Solo se puede mover un disco a la vez.</li>
+          <li>Un disco nunca puede colocarse encima de otro disco más pequeño [5].</li>
+        <img src="Imagenes/Honai.png" width="250"style="display: block; margin: auto;">
+        <p> Problema clásico de mover discos entre torres siguiendo reglas estrictas.</p>
+        <img src="Imagenes/Torres_de.png" width="250"style="display: block; margin: auto;">
+      </div>
+
+
+      <div class="card">
+        <h3>Fractales</h3>
+        <p>La búsqueda binaria es un algoritmo eficiente para buscar un elemento específico en un arreglo ordenado.</p>
+        <img src="Imagenes/Binario.png" width="250"style="display: block; margin: auto;">
+        <p>Estructuras autosimilares generadas recursivamente, como el conjunto de Mandelbrot.</p>
+        <br> <!-- salto de línea -->
+        <img src="Imagenes/Facto Ejemplo.1jpg.jpg" width="230" style="display: block; margin: auto;">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSIÓN -->
+  <section id="conclusion">
+  <h2>Conclusión</h2>
+  <div class="cards">
+    <div class="card grande">
+      <p>
+         La recursividad constituye un principio esencial en la programación 
+         y en las matemáticas, pues permite resolver problemas complejos 
+         mediante la repetición de pasos más simples. Ejemplos como el 
+         factorial, la sucesión de Fibonacci, las Torres de Hanói y los 
+         fractales reflejan la versatilidad de esta técnica, capaz de ir 
+         desde aplicaciones formativas hasta representaciones visuales de 
+         gran complejidad. Sus características de simplicidad, elegancia y 
+         autorreferencia la convierten en una herramienta valiosa, aunque su 
+         uso también implica considerar la complejidad computacional que puede
+         generar. En síntesis, la recursividad muestra cómo un mismo enfoque puede
+         aplicarse a diversos contextos, brindando soluciones claras y 
+         creativas.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- REFERENCIAS -->
+  <section id="referencias">
+  <h2>Referencias IEEE</h2>
+  <div class="cards">
+    <div class="card grande">
+      
+        <li>[1] Nivardo, “Recursividad en Java,” Oregoom.com, Sep. 09, 2024. https://oregoom.com/java/recursividad/#%C2%BFQue_es_la_recursividad_en_Java</li>
+        <li>[2] DR, Osvaldo Cairó, “Estructuras de Datos,” Sepiembre 2025, [Online]. Available: https://www.udocz.com/apuntes/1351947/estructuras-de-datos </li>
+        <li>[3] L. Byte, “Recursión (Recursividad) en Programación: Guía Completa » CodigoNautas,” CodigoNautas, Apr. 22, 2025. https://codigonautas.com/recursion-recursividad-programacion/</li>
+        <li>[4] M. Raghuwanshi, Algoritmos y estructuras de datos . Nagpur: Alpha Sci. Int. Ltd, 2019. </li>
+        <li>[5] Estructura de datos en Pascal . Naucalpan de Juárez, Edo de México: PRETINCE-HALL HISPANOAM.,SA, 1983. </li>
+        <li>[6] Prof. Edgar Tista. Complejidad computacional - parte 1. (Apr. 1, 2020). Accessed: Oct. 2, 2025. [Online Video]. Available: https://www.youtube.com/watch?v=UGmFAbEEd0I  </li>
+      
+    </div>
+  </div>
+</section>
+
+  
+  <footer>
+    <p>Recursividad   ||   Segunda Unidad   ||   IC - 302  || estructura de datos </p>
+    <p> Mariana Alejandra García Rojas  || Jessica Orta Barrios || Guadalupe Medina Sotelo</p>
+  </footer>
+
+</body>
+</html>
